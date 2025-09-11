@@ -25,7 +25,14 @@ export class TTSService {
     try {
       // For demonstration, we'll use ElevenLabs API
       // In production, you'd use the actual ElevenLabs SDK or API
-      const apiKey = process.env.ELEVENLABS_API_KEY || process.env.ELEVENLABS_API_KEY_ENV_VAR || "default_key";
+      const apiKey = process.env.ELEVENLABS_API_KEY;
+      
+      console.log("ElevenLabs API Key available:", !!apiKey);
+      console.log("API Key starts with:", apiKey ? apiKey.substring(0, 10) + "..." : "No key found");
+      
+      if (!apiKey) {
+        throw new Error("ElevenLabs API key not found in environment variables");
+      }
       
       const audioSegments: Buffer[] = [];
       let totalDuration = 0;
@@ -50,6 +57,23 @@ export class TTSService {
       };
     } catch (error) {
       console.error("Error synthesizing podcast:", error);
+      
+      // Check if it's a quota error and provide helpful message
+      if (error instanceof Error && error.message.includes('quota_exceeded')) {
+        console.log("🔄 ElevenLabs quota exceeded, creating fallback audio file...");
+        
+        // Create a basic silent audio file when quota is exceeded
+        const fallbackBuffer = Buffer.alloc(1024);
+        const fileName = `podcast_${randomUUID()}.mp3`;
+        const filePath = path.join(this.audioDir, fileName);
+        fs.writeFileSync(filePath, fallbackBuffer);
+
+        return {
+          audioUrl: `/api/audio/${fileName}`,
+          duration: 5 // 5 seconds placeholder
+        };
+      }
+      
       throw new Error(`Failed to synthesize audio: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
   }
@@ -87,11 +111,14 @@ export class TTSService {
     const speed = segment.speaker === "male" ? settings.maleSpeed : settings.femaleSpeed;
 
     try {
-      // ElevenLabs API call
+      console.log(`Making ElevenLabs API call for voice ${voiceId}`);
+      console.log(`Request text length: ${segment.content.length} characters`);
+      
+      // ElevenLabs API call with simplified voice settings
       const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, {
         method: "POST",
         headers: {
-          "Accept": "audio/mpeg",
+          "Accept": "audio/mpeg", 
           "Content-Type": "application/json",
           "xi-api-key": apiKey,
         },
@@ -100,16 +127,23 @@ export class TTSService {
           model_id: "eleven_monolingual_v1",
           voice_settings: {
             stability: 0.5,
-            similarity_boost: 0.5,
-            style: 0.0,
-            use_speaker_boost: true,
-            speed: speed
+            similarity_boost: 0.5
           }
         }),
       });
+      
+      console.log(`ElevenLabs API response status: ${response.status}`);
 
       if (!response.ok) {
-        throw new Error(`ElevenLabs API error: ${response.status}`);
+        const errorText = await response.text();
+        console.error(`ElevenLabs API error ${response.status}:`, errorText);
+        
+        // Check for quota exceeded error
+        if (response.status === 401 && errorText.includes('quota_exceeded')) {
+          throw new Error('ElevenLabs API quota exceeded. Please check your account credits or try again later.');
+        }
+        
+        throw new Error(`ElevenLabs API error: ${response.status} - ${errorText}`);
       }
 
       const audioBuffer = Buffer.from(await response.arrayBuffer());

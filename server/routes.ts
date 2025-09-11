@@ -159,35 +159,48 @@ export async function registerRoutes(app: Express): Promise<Server> {
 // Async function to handle podcast generation
 async function generatePodcastAsync(podcastId: string, settings: any) {
   try {
+    console.log(`🎙️ Starting podcast generation for ID: ${podcastId}`);
+    console.log(`📝 Content length: ${settings.content.length} characters`);
+    
     // Update status to script generation
+    console.log("🔄 Updating status to generating_script");
     await storage.updatePodcastStatus(podcastId, "generating_script");
 
     // Generate script
+    console.log("🤖 Calling OpenAI to generate script...");
     const script = await openaiService.generatePodcastScript(settings.content, settings);
+    console.log(`✅ Script generated with ${script.segments.length} segments`);
     
     // Update with generated script
+    console.log("🔄 Updating podcast with generated script");
     await storage.updatePodcast(podcastId, {
       generatedScript: script,
       status: "generating_audio"
     });
 
     // Generate audio
+    console.log("🎵 Starting TTS audio generation...");
     const audioResult = await ttsService.synthesizePodcast(script, {
       maleVoice: settings.maleVoice,
       femaleVoice: settings.femaleVoice,
       maleSpeed: settings.maleSpeed,
       femaleSpeed: settings.femaleSpeed
     });
+    console.log(`✅ Audio generated: ${audioResult.audioUrl}, duration: ${audioResult.duration}s`);
 
     // Update with completed audio
+    console.log("🔄 Updating podcast status to completed");
     await storage.updatePodcast(podcastId, {
       audioUrl: audioResult.audioUrl,
       duration: Math.round(audioResult.duration),
       status: "completed"
     });
+    
+    console.log("🎉 Podcast generation completed successfully!");
 
   } catch (error) {
-    console.error("Async generation error:", error);
+    console.error("❌ Async generation error:", error);
+    console.error("📍 Error stack:", error instanceof Error ? error.stack : 'No stack trace');
     await storage.updatePodcastStatus(podcastId, "failed");
   }
 }
