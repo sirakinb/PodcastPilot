@@ -55,21 +55,6 @@ export default function VoiceSettings({ settings, onSettingsChange }: VoiceSetti
                 ))}
               </SelectContent>
             </Select>
-            <div className="flex items-center space-x-2">
-              <Label className="text-sm text-muted-foreground">Speed:</Label>
-              <Slider
-                value={[settings.maleSpeed]}
-                onValueChange={(value) => onSettingsChange({ maleSpeed: value[0] })}
-                min={0.7}
-                max={1.3}
-                step={0.1}
-                className="flex-1"
-                data-testid="slider-male-speed"
-              />
-              <span className="text-sm text-muted-foreground w-12 text-right" data-testid="text-male-speed">
-                {settings.maleSpeed.toFixed(1)}x
-              </span>
-            </div>
           </div>
 
           {/* Female Host */}
@@ -93,22 +78,14 @@ export default function VoiceSettings({ settings, onSettingsChange }: VoiceSetti
                 ))}
               </SelectContent>
             </Select>
-            <div className="flex items-center space-x-2">
-              <Label className="text-sm text-muted-foreground">Speed:</Label>
-              <Slider
-                value={[settings.femaleSpeed]}
-                onValueChange={(value) => onSettingsChange({ femaleSpeed: value[0] })}
-                min={0.7}
-                max={1.3}
-                step={0.1}
-                className="flex-1"
-                data-testid="slider-female-speed"
-              />
-              <span className="text-sm text-muted-foreground w-12 text-right" data-testid="text-female-speed">
-                {settings.femaleSpeed.toFixed(1)}x
-              </span>
-            </div>
           </div>
+        </div>
+        
+        <div className="mt-4 p-3 bg-muted/50 rounded-lg">
+          <p className="text-sm text-muted-foreground">
+            <strong>Note:</strong> Voice tempo adjustments during synthesis are not currently supported. 
+            You can adjust playback speed after generation using the audio player controls.
+          </p>
         </div>
       </CardContent>
     </Card>

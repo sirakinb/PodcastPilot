@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { FileText, Edit, User } from "lucide-react";
+import { FileText, User } from "lucide-react";
 import type { GeneratedScript } from "@shared/schema";
 
 interface ScriptPreviewProps {
@@ -59,14 +59,10 @@ export default function ScriptPreview({ podcastId }: ScriptPreviewProps) {
           </div>
         </ScrollArea>
 
-        <div className="mt-4 flex justify-between items-center">
+        <div className="mt-4">
           <span className="text-sm text-muted-foreground" data-testid="text-script-duration">
             Script length: ~{formatDuration(script.estimatedDuration)}
           </span>
-          <Button variant="outline" size="sm" className="text-primary hover:underline">
-            <Edit className="mr-1" size={16} />
-            Edit Script
-          </Button>
         </div>
       </CardContent>
     </Card>

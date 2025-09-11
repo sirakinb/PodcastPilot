@@ -28,7 +28,6 @@ export class TTSService {
       const apiKey = process.env.ELEVENLABS_API_KEY;
       
       console.log("ElevenLabs API Key available:", !!apiKey);
-      console.log("API Key starts with:", apiKey ? apiKey.substring(0, 10) + "..." : "No key found");
       
       if (!apiKey) {
         throw new Error("ElevenLabs API key not found in environment variables");

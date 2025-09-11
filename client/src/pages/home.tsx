@@ -8,11 +8,14 @@ import ScriptPreview from "@/components/ScriptPreview";
 import AudioPlayer from "@/components/AudioPlayer";
 import DownloadSection from "@/components/DownloadSection";
 import RecentGenerations from "@/components/RecentGenerations";
+import { useToast } from "@/hooks/use-toast";
 import type { PodcastGenerationRequest } from "@shared/schema";
 
 export default function Home() {
   const [content, setContent] = useState("");
   const [currentPodcastId, setCurrentPodcastId] = useState<string | null>(null);
+  const [isGenerating, setIsGenerating] = useState(false);
+  const { toast } = useToast();
   const [settings, setSettings] = useState<Omit<PodcastGenerationRequest, 'content'>>({
     maleVoice: "David",
     femaleVoice: "Sarah",
@@ -39,8 +42,15 @@ export default function Home() {
 
   const handleGenerate = useCallback(async () => {
     if (!content.trim() || content.length < 100) {
+      toast({
+        title: "Content too short",
+        description: "Please provide at least 100 characters of content to generate a podcast.",
+        variant: "destructive",
+      });
       return;
     }
+
+    setIsGenerating(true);
 
     try {
       const response = await fetch("/api/generate-podcast", {
@@ -50,15 +60,28 @@ export default function Home() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to generate podcast");
+        const errorData = await response.json().catch(() => ({ error: "Failed to generate podcast" }));
+        throw new Error(errorData.error || "Failed to generate podcast");
       }
 
       const result = await response.json();
       setCurrentPodcastId(result.podcastId);
+      
+      toast({
+        title: "Podcast generation started!",
+        description: "Your podcast is being generated. This may take a few minutes.",
+      });
     } catch (error) {
       console.error("Generation error:", error);
+      toast({
+        title: "Generation failed",
+        description: error instanceof Error ? error.message : "Failed to generate podcast. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsGenerating(false);
     }
-  }, [content, settings]);
+  }, [content, settings, toast]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -120,14 +143,26 @@ export default function Home() {
 
             <button 
               onClick={handleGenerate}
-              disabled={!content.trim() || content.length < 100}
+              disabled={!content.trim() || content.length < 100 || isGenerating}
               className="w-full bg-primary text-primary-foreground py-4 px-6 rounded-lg font-semibold text-lg hover:bg-primary/90 transition-colors shadow-lg flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
               data-testid="button-generate"
             >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd"/>
-              </svg>
-              <span>Generate Podcast</span>
+              {isGenerating ? (
+                <>
+                  <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  <span>Generating...</span>
+                </>
+              ) : (
+                <>
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd"/>
+                  </svg>
+                  <span>Generate Podcast</span>
+                </>
+              )}
             </button>
           </div>
 

@@ -1,16 +1,73 @@
+import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Play, Download, Clock } from "lucide-react";
+import { Play, Pause, Download, Clock } from "lucide-react";
 import type { Podcast } from "@shared/schema";
 
 interface RecentGenerationsProps {
   podcasts?: Podcast[];
 }
 
+// Shared audio instance to prevent overlapping playback
+let globalAudio: HTMLAudioElement | null = null;
+
 export default function RecentGenerations({ podcasts = [] }: RecentGenerationsProps) {
-  const handlePlay = (podcastId: string) => {
-    // In a real implementation, this would navigate to the podcast or open a player
-    console.log("Play podcast:", podcastId);
+  const [currentlyPlaying, setCurrentlyPlaying] = useState<string | null>(null);
+
+  // Cleanup audio on unmount
+  useEffect(() => {
+    return () => {
+      if (globalAudio) {
+        globalAudio.pause();
+        globalAudio = null;
+      }
+    };
+  }, []);
+
+  const handlePlay = (audioUrl: string, podcastId: string) => {
+    if (!audioUrl) {
+      console.error("No audio URL provided");
+      return;
+    }
+
+    // If clicking the same audio that's currently playing, pause it
+    if (currentlyPlaying === podcastId && globalAudio) {
+      globalAudio.pause();
+      setCurrentlyPlaying(null);
+      return;
+    }
+
+    // If clicking the same audio that's paused, resume it
+    if (globalAudio && globalAudio.src.includes(audioUrl.split('/').pop() || '')) {
+      globalAudio.play().then(() => {
+        setCurrentlyPlaying(podcastId);
+      }).catch(error => {
+        console.error("Failed to resume audio:", error);
+        setCurrentlyPlaying(null);
+      });
+      return;
+    }
+    
+    // Stop any currently playing audio and reset for new audio
+    if (globalAudio) {
+      globalAudio.pause();
+      globalAudio.currentTime = 0;
+    }
+
+    // Create and play new audio
+    globalAudio = new Audio(audioUrl);
+    globalAudio.onended = () => setCurrentlyPlaying(null);
+    globalAudio.onerror = (error) => {
+      console.error("Failed to play audio:", error);
+      setCurrentlyPlaying(null);
+    };
+
+    globalAudio.play().then(() => {
+      setCurrentlyPlaying(podcastId);
+    }).catch(error => {
+      console.error("Failed to play audio:", error);
+      setCurrentlyPlaying(null);
+    });
   };
 
   const handleDownload = (podcastId: string, audioUrl: string) => {
@@ -97,11 +154,11 @@ export default function RecentGenerations({ podcasts = [] }: RecentGenerationsPr
                       <Button
                         variant="ghost"
                         size="sm"
-                        onClick={() => handlePlay(podcast.id)}
+                        onClick={() => handlePlay(podcast.audioUrl!, podcast.id)}
                         className="text-primary hover:text-primary/80"
                         data-testid={`button-play-${podcast.id}`}
                       >
-                        <Play size={16} />
+                        {currentlyPlaying === podcast.id ? <Pause size={16} /> : <Play size={16} />}
                       </Button>
                       <Button
                         variant="ghost"
