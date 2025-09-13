@@ -1,15 +1,131 @@
 [
   {
     "title": "Generated Podcast",
-    "originalContent": "This is a test content for persistence testing. It needs to be at least 100 characters long to pass validation requirements. This should be enough content to trigger the podcast generation process and create persistent data.",
+    "originalContent": "This is a test article about artificial intelligence and its impact on society. Artificial intelligence has transformed many industries and continues to evolve rapidly. Machine learning algorithms are becoming more sophisticated each year. This technology is reshaping how we work, learn, and communicate with each other in the modern world.",
     "generatedScript": {
-      "segments": [],
-      "estimatedDuration": 0
+      "segments": [
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "Hey everyone, welcome back to the show. I’m David, and today we’re diving into a short but spot-on article about artificial intelligence and its impact on society. It highlights how AI keeps evolving at a rapid clip, with machine learning getting more sophisticated every year, reshaping how we work, learn, and communicate. Big ideas, simple framing — and a great excuse for us to unpack what that really looks like in everyday life."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "I’m Sarah, and I love that this piece gets right to the heart of it. We all feel the pace picking up — new tools, new headlines every week. So let’s start there. David, when people hear rapid evolution, what’s actually different about AI now compared to, say, five years ago?"
+        },
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "Great question. The biggest shift is that we’re seeing more capable models trained on larger datasets with more computing power — and smarter architectures. A few years ago, we were excited about systems that could classify images or predict basic patterns. Now, systems can generate language, summarize complex topics, translate on the fly, and even assist with coding and research. That sophistication comes from technique plus scale: better learning algorithms, more data to learn from, and infrastructure to train and deploy at speed. The net effect is that what felt like science fiction is creeping into everyday workflows."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "And that’s where the impact on industries gets real. We’re not just talking about tech firms — we’re seeing hospitals triage patient messages, logistics teams optimize routes, small businesses automate customer support. But here’s a tension I hear all the time: if AI is transforming work, how should we think about jobs? Is this replacement, augmentation, or both?"
+        },
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "Both, but the nuance matters. AI excels at well-defined, repeatable tasks — combing through documents, drafting first passes, spotting anomalies. That means a lot of roles shift from doing every step manually to orchestrating, checking, and collaborating with a system. Think of a radiologist who now has an AI assistant pre-flag suspicious scans, or a customer support agent who gets suggested responses so they can focus on complex cases. Some tasks will be automated away; others will be elevated. The skills that rise in value include problem framing, judgment, and communication — the human layers that steer the tech and connect it to outcomes."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "So, augmentation if we lean into it. But that requires upskilling, right? Not just technical upskilling, but learning to ask good questions, to evaluate outputs, to keep bias and edge cases in mind. I’m also thinking about access — the tools are powerful, but not everyone has equal resources or training. What’s a sensible path for teams that feel behind but want to start responsibly?"
+        },
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "Start small and practical. Pick a high-friction process — summarizing meeting notes, drafting standard emails, sorting inbound requests — and run a pilot. Set a clear success metric, define what the AI should and should not do, and keep a human in the loop. Parallel to that, invest in literacy: short workshops on prompting, verification, and privacy. And make ethics a feature, not an afterthought — establish guidelines around data handling, consent, and bias evaluation. When teams experience wins on the ground, the fear drops and the curiosity grows."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "Let’s pivot to learning, because the article calls out education. We’ve seen students use AI for outlines, translations, and feedback. On the upside, you get personalized nudges and explanations at any hour. On the downside, you get shortcuts that bypass real learning. How do you see AI reshaping classrooms without hollowing out the core of education?"
+        },
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "The sweet spot is AI as a tutor, not a cheat. Systems can adapt explanations to a student’s level, generate practice problems, and provide immediate feedback. For language learners, instant translation and conversation practice can be transformational. But we need structure: clear policies on when AI is allowed, assignments that require process — think showing drafts and reflections — and assessments that check understanding, not just polished output. Teaching students how to prompt, verify, and cite sources turns AI use into a skill rather than a shortcut. That’s the literacy we need for the modern world."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "Communication is the third pillar in the article — and it’s a big one. The way we communicate is changing because AI is sitting in our inboxes, our chat apps, even our translation tools. I love that this opens doors — more people can express ideas clearly and across languages. But I worry about trust. When AI can generate fluent text and synthetic media, how do we know what’s real?"
+        },
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "That’s the paradox — AI helps us communicate more, but it also raises the bar for verification. We’ll see more emphasis on authenticity signals: provenance metadata, watermarks, cryptographic signing for images and videos, and platform-level context labels. On the user side, critical media literacy becomes table stakes: checking sources, looking for corroboration, and noticing when content seems too perfectly aligned with a narrative. Over time, I expect our tools to carry a trail of trust — like nutrition labels for information — so we can quickly gauge what we’re looking at."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "Let’s talk pace. The article emphasizes how fast this is moving. Individuals and organizations feel whiplash — every few months, a leap. How do you keep up without burning out or chasing shiny objects that don’t deliver?"
+        },
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "Two habits help. First, adopt a portfolio mindset: a few production tools that are stable and well-governed, a couple of pilots that test promising capabilities, and ongoing scanning to see what’s emerging. Second, set guardrails — privacy-by-design, bias checks, and clear escalation paths when the system is uncertain. This avoids hero projects that fizz out and instead builds a repeatable muscle for evaluation and adoption. It’s less about catching every wave and more about steering the boat well."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "Zooming out, there’s also a public dimension. If AI really is reshaping work, learning, and communication, we don’t want a future where only a few benefit. That means public infrastructure — access to tools, connectivity, and training — so smaller schools, nonprofits, and local businesses can participate. What can policy and industry do, concretely, to nudge AI toward the public good?"
+        },
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "A few levers: fund open educational resources and shared datasets; offer cloud credits and technical support for nonprofits and civic projects; set procurement standards that reward transparency and responsible practices; and invest in workforce programs that pair technical skills with domain expertise. Also, support research on safety and evaluation so we can measure real-world impacts. These are pragmatic steps that spread capability while raising the floor on ethics and reliability."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "Before we wrap, lightning round — myths versus reality. I’ll throw a claim, you give me the quick take. First: AI will take all the jobs."
+        },
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "Reality: AI will change all jobs and eliminate some tasks. New roles appear as others shrink. The distribution depends on how we design work, train people, and share the gains."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "Second: AI is objective by default."
+        },
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "Myth. Models reflect their data and design. Objectivity is engineered — through diverse data, audits, and continuous monitoring."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "Third: AI is basically conscious now."
+        },
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "Not even close. These systems are powerful pattern learners, not sentient beings. Useful, yes. Self-aware, no."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "Perfect. So, to bring it back to the article’s core: AI is transforming industries and evolving fast, with machine learning growing more sophisticated year by year. That sophistication shows up in our jobs, in how we study, and in the ways we connect with each other. The opportunity is huge if we pair curiosity with caution — pilot thoughtfully, learn openly, and center people in the loop."
+        },
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "Well said. Thanks for listening, everyone. If this sparked ideas about how AI could help your team or community, send us your stories and questions. We’ll keep exploring the practical side of this shift — one conversation at a time. Until next time, take care."
+        }
+      ],
+      "estimatedDuration": 420
     },
-    "audioUrl": null,
-    "duration": null,
+    "audioUrl": "/api/audio/podcast_cdc05de5-2e5f-440c-90b2-6c4a2799ba8b.mp3",
+    "duration": 23,
     "settings": {
-      "content": "This is a test content for persistence testing. It needs to be at least 100 characters long to pass validation requirements. This should be enough content to trigger the podcast generation process and create persistent data.",
+      "content": "This is a test article about artificial intelligence and its impact on society. Artificial intelligence has transformed many industries and continues to evolve rapidly. Machine learning algorithms are becoming more sophisticated each year. This technology is reshaping how we work, learn, and communicate with each other in the modern world.",
       "maleVoice": "David",
       "femaleVoice": "Sarah",
       "maleSpeed": 1,
@@ -17,8 +133,161 @@
       "targetLength": "standard",
       "tone": "conversational"
     },
-    "status": "generating_script",
-    "id": "1c1e6fb8-5467-4240-9d07-a79b751c3940",
-    "createdAt": "2025-09-13T03:10:30.990Z"
+    "status": "completed",
+    "id": "1cac05aa-7215-4237-9829-9aae9a5bc96c",
+    "createdAt": "2025-09-13T03:18:58.998Z"
+  },
+  {
+    "title": "Generated Podcast",
+    "originalContent": "This is a test article about artificial intelligence and its impact on society. Artificial intelligence has transformed many industries and continues to evolve rapidly. Machine learning algorithms are becoming more sophisticated each year. This technology is reshaping how we work, learn, and communicate with each other in the modern world.",
+    "generatedScript": {
+      "segments": [
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "Welcome to The Current, where we unpack the ideas shaping our world. I’m David, and today we’re diving into a topic that’s everywhere—from boardrooms to classrooms to your group chats: artificial intelligence and how it’s reshaping society. We’re talking about where AI is right now, why it’s evolving so quickly, and how it’s changing the way we work, learn, and communicate."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "And I’m Sarah. This conversation is sparked by an article that lays out the big picture: AI has already transformed many industries, it’s advancing at a rapid clip, and machine learning keeps getting more sophisticated every year. So let’s unpack what that actually means for everyday life."
+        },
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "Right. The headline is that AI isn’t a future promise—it’s a present reality. Across sectors, software powered by machine learning is helping make decisions, spot patterns, and automate tasks. What’s different now is the speed. Every year we see systems get better at understanding language, images, and complex data, which scales the impact beyond niche applications."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "When we say industries are being transformed, people might picture robots on factory floors. But it’s much broader, right? We’re talking about finance, healthcare, media, education—places where decisions and communication are core parts of the job."
+        },
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "Exactly. In healthcare, for example, AI can sift through large sets of medical notes to flag potential issues for clinicians. In finance, it can surface unusual patterns that might indicate risk. In media, it assists with editing and summaries. And in education, it personalizes practice exercises. These aren’t sci‑fi scenarios—they’re practical, assistive tools woven into existing workflows."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "That word assistive is key. There’s a difference between AI doing a task end‑to‑end and AI helping a person do the task better or faster. The article’s point about reshaping how we work suggests we’re in that second mode more and more: people plus machines, not people versus machines."
+        },
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "Totally. And the rapid evolution piece really shows up in the capabilities of machine learning. Each year brings improvements in how models recognize patterns and generalize from examples. That means they’re not just memorizing—they’re getting better at mapping context, which is why we see tools that can draft an email, summarize a meeting, or help explain a concept in plain language."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "Let’s make that tangible. When we say models are more sophisticated, what are the everyday signs a listener might notice without ever peeking under the hood?"
+        },
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "One sign is fewer awkward, obviously wrong outputs. Another is that the tools can handle more open‑ended prompts—like, “Help me plan a training session for new hires with different learning styles.” You’ll also notice better follow‑up: you can say, “Shorten that,” or, “Make it friendlier,” and the system adapts. Those layers of understanding and iteration come from more capable learning algorithms trained on broader patterns."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "Let’s talk about work. The article says AI is reshaping how we work, which feels true whether you’re in an office, on a shop floor, or freelancing. What changes are people actually feeling day to day?"
+        },
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "A big one is time. Routine tasks—scheduling, drafting standard emails, transcribing calls—can be offloaded or sped up. For knowledge workers, that means more time for strategy and creative problem‑solving. For operations and support roles, it can mean faster responses and better routing. And importantly, it also means new coordination patterns: people are learning to ‘brief’ AI tools the way they’d brief a colleague."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "That shift changes the skills we value. It’s not just ‘Can you do the task?’ but ‘Can you design the task, set the right constraints, and evaluate the outcomes?’ There’s a lot of meta‑work—thinking about how work gets done. And that can make the playing field more dynamic, which is exciting and… a bit daunting."
+        },
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "It is. The upside is productivity and access to better tools. The challenge is learning to use them thoughtfully. But the article’s core point stands: the shape of work is changing. Roles evolve when a tool can handle the first draft, or sort signals from noise. We’re shifting from pure execution to curation, direction, and oversight."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "Let’s pivot to learning. The article calls out that AI is reshaping how we learn. That’s everything from students in classrooms to adults upskilling. What’s the practical difference AI makes here?"
+        },
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "Personalization. AI can adjust explanations to your level, pace practice to your strengths and weaknesses, and give immediate feedback. If you don’t get a concept, it can re‑explain with a new example. If you’re racing ahead, it can stretch you. It’s like having an always‑available study partner that tunes itself to your needs."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "And it’s not just formal education. If you’re switching careers or picking up a new tool, you can ask targeted questions, get step‑by‑step guidance, and build confidence faster. The thread running through all of this is agency—people can take more control over their learning path with a responsive companion."
+        },
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "Exactly. But I’ll add: guidance still matters. The best outcomes happen when educators and mentors frame good questions, set goals, and help interpret feedback. AI helps with practice and explanation; people provide direction and discernment."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "Alright, communication. The article highlights that AI is reshaping how we communicate with each other. We’re already living that—messages drafted for clarity, meetings summarized, translation bridging language gaps. What stands out to you as the biggest shift?"
+        },
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "Speed and reach. You can craft a clear message faster, and you can do it across languages with translation that’s good enough to keep momentum. AI can capture the gist of a long conversation and extract next steps. That makes group coordination smoother and brings more voices into the conversation, especially when time zones or language differences used to be barriers."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "There’s also a subtle cultural shift. Because tools help with tone and structure, more people feel comfortable contributing. The flip side is remembering to stay authentic—use AI to clarify, not to flatten your voice. It’s a new etiquette, but it supports the article’s idea: AI is not just doing things for us, it’s changing how we relate."
+        },
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "Well said. If we zoom out, the picture is consistent: machine learning keeps getting better at pattern recognition and context handling, which broadens what’s possible. The evolution is rapid, and the changes show up not only in tools, but in habits—how we plan our day, ask questions, and share ideas."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "So, big takeaways from the article: AI has already transformed many industries; it continues to evolve quickly; machine learning grows more sophisticated each year; and this technology is actively reshaping how we work, learn, and communicate. If you’re listening and wondering what to do with that, my advice is simple: experiment, reflect, and adjust. Try a tool on a small task, notice what improves, and keep your judgment in the loop."
+        },
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "I’ll add one more: be intentional. Decide where AI should assist you—drafting, summarizing, brainstorming—and where you want to stay fully hands‑on. That clarity keeps the benefits while protecting what matters most in your craft and relationships."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "And with that, we’ll wrap. Thanks for spending time with us today. If you found this helpful, share it with someone who’s figuring out their own AI workflow."
+        },
+        {
+          "speaker": "male",
+          "name": "David",
+          "content": "You’ve been listening to The Current. I’m David."
+        },
+        {
+          "speaker": "female",
+          "name": "Sarah",
+          "content": "I’m Sarah. Stay curious, stay kind, and we’ll see you next time."
+        }
+      ],
+      "estimatedDuration": 420
+    },
+    "audioUrl": "/api/audio/podcast_a0dcd5ba-acef-4d3c-829e-ccf509e2547b.mp3",
+    "duration": 26,
+    "settings": {
+      "content": "This is a test article about artificial intelligence and its impact on society. Artificial intelligence has transformed many industries and continues to evolve rapidly. Machine learning algorithms are becoming more sophisticated each year. This technology is reshaping how we work, learn, and communicate with each other in the modern world.",
+      "maleVoice": "David",
+      "femaleVoice": "Sarah",
+      "maleSpeed": 1,
+      "femaleSpeed": 1,
+      "targetLength": "standard",
+      "tone": "conversational"
+    },
+    "status": "completed",
+    "id": "f6f8ede1-7544-4d61-8477-bc2f6ca1dacd",
+    "createdAt": "2025-09-13T03:19:07.944Z"
   }
 ]
