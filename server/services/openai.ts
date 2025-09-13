@@ -32,7 +32,6 @@ REQUIREMENTS:
 - Discussion tone: ${toneInstructions[settings.tone]}
 - Male host voice: ${settings.maleVoice}
 - Female host voice: ${settings.femaleVoice}
-- Include intro and outro: ${settings.includeIntro}
 
 SCRIPT FORMAT:
 - Create natural, engaging dialogue between the two hosts
@@ -41,9 +40,8 @@ SCRIPT FORMAT:
 - Include natural transitions, pauses, and conversational elements
 - Make sure the discussion covers the key points from the article
 - Keep the conversation flowing naturally without being repetitive
-
-${settings.includeIntro ? 'Start with a brief intro where hosts introduce themselves and the topic.' : ''}
-${settings.includeIntro ? 'End with a brief outro and closing remarks.' : ''}
+- Start with a brief intro where hosts introduce themselves and the topic
+- End with a brief outro and closing remarks
 
 Return the response as JSON in this exact format:
 {

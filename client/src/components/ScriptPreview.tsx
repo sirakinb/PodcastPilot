@@ -61,7 +61,7 @@ export default function ScriptPreview({ podcastId }: ScriptPreviewProps) {
 
         <div className="mt-4">
           <span className="text-sm text-muted-foreground" data-testid="text-script-duration">
-            Script length: ~{formatDuration(script.estimatedDuration)}
+            Script length: ~{formatDuration((status as any)?.duration || script.estimatedDuration)}
           </span>
         </div>
       </CardContent>

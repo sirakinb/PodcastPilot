@@ -1,7 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Settings } from "lucide-react";
 import type { PodcastGenerationRequest } from "@shared/schema";
 
@@ -76,29 +75,6 @@ export default function GenerationSettings({ settings, onSettingsChange }: Gener
             </Select>
           </div>
 
-          <div className="flex items-center space-x-2">
-            <Checkbox
-              id="include-intro"
-              checked={settings.includeIntro}
-              onCheckedChange={(checked) => onSettingsChange({ includeIntro: !!checked })}
-              data-testid="checkbox-include-intro"
-            />
-            <Label htmlFor="include-intro" className="text-sm text-foreground">
-              Include intro and outro
-            </Label>
-          </div>
-
-          <div className="flex items-center space-x-2">
-            <Checkbox
-              id="add-music"
-              checked={settings.addMusic}
-              onCheckedChange={(checked) => onSettingsChange({ addMusic: !!checked })}
-              data-testid="checkbox-add-music"
-            />
-            <Label htmlFor="add-music" className="text-sm text-foreground">
-              Add background music
-            </Label>
-          </div>
         </div>
       </CardContent>
     </Card>

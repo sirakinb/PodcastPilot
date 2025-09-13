@@ -52,6 +52,7 @@ export default function RecentGenerations({ podcasts = [] }: RecentGenerationsPr
     if (globalAudio) {
       globalAudio.pause();
       globalAudio.currentTime = 0;
+      globalAudio = null;
     }
 
     // Create and play new audio

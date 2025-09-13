@@ -39,8 +39,6 @@ export const podcastGenerationRequestSchema = z.object({
   femaleSpeed: z.number().min(0.7).max(1.3).default(1.0),
   targetLength: z.enum(["brief", "standard", "detailed", "indepth"]).default("standard"),
   tone: z.enum(["professional", "conversational", "casual", "academic"]).default("conversational"),
-  includeIntro: z.boolean().default(true),
-  addMusic: z.boolean().default(false),
 });
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
