@@ -1,0 +1,24 @@
+[
+  {
+    "title": "Generated Podcast",
+    "originalContent": "This is a test content for persistence testing. It needs to be at least 100 characters long to pass validation requirements. This should be enough content to trigger the podcast generation process and create persistent data.",
+    "generatedScript": {
+      "segments": [],
+      "estimatedDuration": 0
+    },
+    "audioUrl": null,
+    "duration": null,
+    "settings": {
+      "content": "This is a test content for persistence testing. It needs to be at least 100 characters long to pass validation requirements. This should be enough content to trigger the podcast generation process and create persistent data.",
+      "maleVoice": "David",
+      "femaleVoice": "Sarah",
+      "maleSpeed": 1,
+      "femaleSpeed": 1,
+      "targetLength": "standard",
+      "tone": "conversational"
+    },
+    "status": "generating_script",
+    "id": "1c1e6fb8-5467-4240-9d07-a79b751c3940",
+    "createdAt": "2025-09-13T03:10:30.990Z"
+  }
+]
