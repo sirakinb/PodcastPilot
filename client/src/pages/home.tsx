@@ -1,5 +1,4 @@
 import { useState, useCallback } from "react";
-import { useQuery } from "@tanstack/react-query";
 import ContentInput from "@/components/ContentInput";
 import VoiceSettings from "@/components/VoiceSettings";
 import GenerationSettings from "@/components/GenerationSettings";
@@ -7,7 +6,6 @@ import ProcessingStatus from "@/components/ProcessingStatus";
 import ScriptPreview from "@/components/ScriptPreview";
 import AudioPlayer from "@/components/AudioPlayer";
 import DownloadSection from "@/components/DownloadSection";
-import RecentGenerations from "@/components/RecentGenerations";
 import { useToast } from "@/hooks/use-toast";
 import type { PodcastGenerationRequest } from "@shared/schema";
 
@@ -23,14 +21,8 @@ export default function Home() {
     femaleSpeed: 1.0,
     targetLength: "standard",
     tone: "conversational",
-    includeIntro: true,
-    addMusic: false,
   });
 
-  const { data: recentPodcasts } = useQuery({
-    queryKey: ["/api/podcasts/recent"],
-    refetchInterval: 30000,
-  });
 
   const handleContentChange = useCallback((newContent: string) => {
     setContent(newContent);
@@ -180,10 +172,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Recent Generations */}
-        <div className="mt-12">
-          <RecentGenerations podcasts={recentPodcasts as any} />
-        </div>
       </main>
 
       {/* Footer */}
