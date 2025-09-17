@@ -87,19 +87,19 @@ export class TTSService {
     },
     apiKey: string
   ): Promise<{ buffer: Buffer; duration: number }> {
-    // Voice ID mapping - these would be actual ElevenLabs voice IDs
+    // Voice ID mapping - corrected ElevenLabs voice IDs
     const voiceIds = {
       male: {
-        David: "21m00Tcm4TlvDq8ikWAM",
-        James: "2EiwWnXFnvU5JabPnv8n",
-        Michael: "flq6f7yk4E4fJM5XTYuZ",
-        Ryan: "wViXBPUzp2ZZixB1xQuM"
+        David: "2EiwWnXFnvU5JabPnv8n",  // James - actual male voice
+        James: "flq6f7yk4E4fJM5XTYuZ", // Michael - actual male voice  
+        Michael: "wViXBPUzp2ZZixB1xQuM", // Ryan - actual male voice
+        Ryan: "pMsXgVXv3BLzUgSXRplE"   // Alternative male voice
       },
       female: {
-        Sarah: "EXAVITQu4vr4xnSDxMaL",
-        Emma: "ThT5KcBeYPX3keUQqHPh",
-        Lisa: "XB0fDUnXU5powFXDhCwa",
-        Rachel: "pNInz6obpgDQGcFmaJgB"
+        Sarah: "EXAVITQu4vr4xnSDxMaL",  // Sarah - confirmed working
+        Emma: "ThT5KcBeYPX3keUQqHPh",   // Emma
+        Lisa: "XB0fDUnXU5powFXDhCwa",   // Lisa
+        Rachel: "pNInz6obpgDQGcFmaJgB"  // Rachel
       }
     };
 

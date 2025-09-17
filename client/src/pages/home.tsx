@@ -89,15 +89,10 @@ export default function Home() {
                 </svg>
               </div>
               <div>
-                <h1 className="text-xl font-bold text-foreground" data-testid="app-title">PodcastAI</h1>
+                <h1 className="text-xl font-bold text-foreground" data-testid="app-title">PodcastPilot</h1>
                 <p className="text-sm text-muted-foreground">AI-Generated Podcasts</p>
               </div>
             </div>
-            <nav className="hidden md:flex space-x-6">
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">How it Works</a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Examples</a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
-            </nav>
           </div>
         </div>
       </header>
@@ -178,7 +173,7 @@ export default function Home() {
       <footer className="mt-16 border-t border-border bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center">
-            <p className="text-muted-foreground">© 2024 PodcastAI. Transform articles into engaging conversations.</p>
+            <p className="text-muted-foreground">© 2025 PodcastPilot. Transform articles into engaging conversations.</p>
           </div>
         </div>
       </footer>
